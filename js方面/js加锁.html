@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js加🔒</title>
+</head>
+
+<body>
+    <p>js加锁：即在一些特定情况下防止重复发送请求，请求发送后锁死，在请求的回调中，重新编排</p>
+</body>
+
+</html>
+<script>
+    var lock = true;
+    var submit = function () {
+        if (lock) {
+            $.ajax({
+                url: '',
+                type: 'POST',
+                data: '',
+                success: function(data){
+                    if(data.result == true){
+                        lock = false;//锁上
+                    }else{
+                        lock = true; //
+                    }
+                },
+                error: function(err){
+                    lock = true;
+                }
+            })
+        }
+    }
+    submit();
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组查重</title>
+</head>
+
+<body>
+    <p>原数组：[1, 0, 2, 3, 4, 1, 77, 88, 22, 2, 77]</p>
+    <button onclick="check()" type="button">数组查重</button>
+    <button onclick="unique()" type="button">数组去重</button>
+</body>
+
+</html>
+<script>
+    let arr = [1, 0, 2, 3, 4, 1, 77, 88, 22, 2, 77];
+    // 查重
+    function check() {
+        var obj = {};
+        for (const key in arr) {
+            if (obj[arr[key]]) {
+                alert('数组重复');
+                return true;
+            } else {
+                obj[arr[key]] = true;
+            }
+        }
+        alert('数组无重复');
+        return false;
+    }
+    // 数组去重
+    function unique() {
+        let arrTable = {},
+            arrData = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (!arrTable[arr[i]]) {
+                arrTable[arr[i]] = true;
+                arrData.push(arr[i]);
+            } 
+            // else {    数组比较去掉两个数组中重复的
+            //     arrData.splice($.inArray(concatArr[i], arrData), 1);
+            // }
+        }
+        console.log('去重后的数组：'+'['+arrData+']');
+        alert('去重后的数组：'+'['+arrData+']');
+    }
+</script>
