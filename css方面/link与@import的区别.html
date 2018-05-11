@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./index.css">
+    <title>link与@import的区别</title>
+</head>
+<style>
+    @import './main.css';
+</style>
+
+<body>
+    <h4>1、从属关系</h4>
+    <p>@import是 CSS 提供的语法规则，只有导入样式表的作用；link是HTML提供的标签，不仅可以加载 CSS 文件，还可以定义 RSS、rel 连接属性等。</p>
+    <h4>2、加载顺序</h4>
+    <p>加载页面时，link引入的css将在同时加载，而@import在页面加载完之后加载。</p>
+    <h4>3、兼容性区别</h4>
+    <p>@import是CSS2.1才有的属性，只有IE5+才能支持；而link标签作为HTML元素，不存在兼容问题。</p>
+    <h4>4、DOM可控性区别</h4>
+    <p>可以通过 JS 操作 DOM ，插入link标签来改变样式；由于 DOM 方法是基于文档的，无法使用@import的方式插入样式。</p>
+    <h4>5、权重区别</h4>
+    <p>link引入的样式权重大于@import引入的样式。</p>
+</body>
+
+</html>
